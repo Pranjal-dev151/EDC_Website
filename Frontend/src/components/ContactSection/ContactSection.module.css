@@ -1,0 +1,50 @@
+.contact { display: grid; gap: var(--space-7); }
+
+.grid {
+  display: grid;
+  gap: var(--grid-gap);
+  grid-template-columns: repeat(var(--columns-contact), minmax(0, 1fr));
+}
+
+@media (min-width: 640px) {
+  .grid { grid-template-columns: 1fr 1.1fr; }
+}
+
+.info { display: grid; gap: var(--space-4); align-content: start; }
+
+.infoCard {
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  display: grid;
+  gap: var(--space-2);
+}
+
+.infoCard h3 { font-size: var(--text-base); }
+.infoCard p { color: var(--color-secondary); font-size: var(--text-sm); }
+.infoCard a { color: var(--color-secondary); text-decoration: underline; }
+
+.form {
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+}
+
+.form label { display: grid; gap: 8px; font-size: var(--text-sm); }
+
+.submit {
+  justify-self: start;
+  padding: 0 22px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+  color: #fff;
+  border: 1px solid var(--color-accent);
+  font-weight: 600;
+}
+
+.success { color: #6fdc8c; font-size: var(--text-sm); }
+.error { color: #ff8a94; font-size: var(--text-sm); }

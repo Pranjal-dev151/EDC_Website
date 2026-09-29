@@ -1,0 +1,43 @@
+.wrap {
+  min-block-size: calc(100svh - 96px);
+  display: grid;
+  place-items: center;
+  padding: var(--section-padding) var(--container-padding);
+}
+
+.card {
+  inline-size: 100%;
+  max-inline-size: var(--auth-max);
+  display: grid;
+  gap: var(--space-5);
+  padding: var(--space-7) var(--space-6);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-panel);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-panel);
+}
+
+.card h1 { font-size: var(--text-2xl); line-height: var(--leading-2xl); }
+
+.description { color: var(--color-secondary); font-size: var(--text-sm); }
+
+.form { display: grid; gap: var(--space-4); }
+
+.field { display: grid; gap: 8px; font-size: var(--text-sm); }
+.field span:first-child { font-weight: 500; }
+
+.error { color: #ff8a94; font-size: var(--text-xs); }
+
+.button {
+  inline-size: 100%;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+  color: #fff;
+  border: 1px solid var(--color-accent);
+  font-weight: 600;
+}
+
+.hint { font-size: var(--text-sm); color: var(--color-secondary); text-align: center; }
+.hint a { color: var(--color-accent); min-block-size: 0; text-decoration: none; }
+
+.success { color: #6fdc8c; font-size: var(--text-sm); text-align: center; }

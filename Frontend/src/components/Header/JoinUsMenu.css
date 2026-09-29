@@ -1,0 +1,15 @@
+.edc-join { position: relative; flex: 0 0 auto; }
+.edc-join__trigger { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-inline-size: 96px; min-block-size: var(--touch-target); padding: 8px 12px; border: 1px solid var(--color-border-strong); border-radius: var(--radius-pill); background: transparent; font-size: var(--text-sm); line-height: var(--leading-sm); font-weight: 600; white-space: nowrap; transition: color var(--duration-fast) var(--ease-out), border-color var(--duration-fast) var(--ease-out); }
+.edc-join__trigger svg { inline-size: 16px; block-size: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; transition: rotate var(--duration-fast) var(--ease-out); }
+.edc-join__trigger[aria-expanded='true'] { color: var(--color-accent); border-color: var(--color-accent); }
+.edc-join__trigger[aria-expanded='true'] svg { rotate: 180deg; }
+.edc-join__popover { position: absolute; inset-block-start: calc(100% + 12px); inset-inline-end: 0; inline-size: min(208px, calc(100vw - 32px)); padding: 16px; border: 1px solid var(--color-border); border-radius: var(--radius-card); background: var(--color-surface); box-shadow: var(--shadow-floating); animation: edc-popover-enter var(--duration-fast) var(--ease-out); }
+.edc-join__popover p { margin-block-end: 8px; }
+.edc-join__popover nav { display: grid; gap: 4px; }
+.edc-join__popover a { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-block-size: var(--touch-target); padding: 8px; border-radius: var(--radius-sm); text-decoration: none; font-size: var(--text-sm); line-height: var(--leading-sm); transition: color var(--duration-fast) var(--ease-out); }
+.edc-join__popover a:focus-visible { color: var(--color-accent); }
+@keyframes edc-popover-enter { from { opacity: 0; translate: 0 -6px; } to { opacity: 1; translate: 0 0; } }
+@media (hover: hover) {
+  .edc-join__trigger:hover { color: var(--color-accent); border-color: var(--color-accent); }
+  .edc-join__popover a:hover { color: var(--color-accent); }
+}

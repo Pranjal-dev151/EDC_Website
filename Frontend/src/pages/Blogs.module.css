@@ -1,0 +1,18 @@
+.page { display: grid; gap: var(--space-7); position: relative; }
+.header { display: grid; gap: var(--space-3); max-inline-size: 720px; }
+.header h1 { font-size: var(--text-3xl); line-height: var(--leading-3xl); }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; }
+.filters button {
+  padding: 0 16px;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-secondary);
+  font-size: var(--text-sm);
+}
+.filters button[aria-selected="true"] { background: var(--color-text); color: var(--color-bg); border-color: var(--color-text); }
+.grid {
+  display: grid;
+  gap: var(--grid-gap);
+  grid-template-columns: repeat(var(--columns-blogs), minmax(0, 1fr));
+}

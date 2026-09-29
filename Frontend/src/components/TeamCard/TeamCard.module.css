@@ -1,0 +1,18 @@
+.card {
+  display: grid;
+  gap: 0;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.photoWrap { aspect-ratio: 1 / 1; overflow: hidden; background: var(--color-bg); }
+.photoWrap img { inline-size: 100%; block-size: 100%; object-fit: cover; }
+
+.body { display: grid; gap: var(--space-2); padding: var(--space-5); }
+.body h3 { font-size: var(--text-base); }
+.role { color: var(--color-secondary); font-size: var(--text-sm); }
+.email { color: var(--color-muted); font-size: var(--text-xs); font-family: var(--font-mono); word-break: break-all; min-block-size: 0; }
+.socials { display: flex; gap: 12px; font-size: var(--text-xs); }
+.socials a { color: var(--color-accent); text-decoration: none; min-block-size: 0; }

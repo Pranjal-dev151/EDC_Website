@@ -1,0 +1,27 @@
+.dialog {
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-panel);
+  background: var(--color-surface);
+  color: var(--color-text);
+  max-inline-size: min(880px, calc(100% - 32px));
+  inline-size: 100%;
+}
+
+.dialog::backdrop { background: rgb(0 0 0 / 62%); backdrop-filter: blur(8px); }
+
+.content { display: grid; gap: 0; overflow: hidden; }
+.content img { inline-size: 100%; block-size: auto; max-block-size: 62vh; object-fit: cover; }
+
+.meta { display: grid; gap: var(--space-3); padding: var(--space-6); }
+.meta h2 { font-size: var(--text-xl); }
+.meta p { color: var(--color-secondary); }
+
+.close {
+  justify-self: start;
+  padding: 0 18px;
+  border-radius: var(--radius-pill);
+  background: var(--color-text);
+  color: var(--color-bg);
+  border: 1px solid var(--color-text);
+}

@@ -1,0 +1,22 @@
+.card {
+  display: grid;
+  gap: 0;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.imageLink { display: block; aspect-ratio: 16 / 10; overflow: hidden; background: var(--color-bg); min-block-size: 0; }
+.imageLink img { inline-size: 100%; block-size: 100%; object-fit: cover; transition: transform var(--duration-base) var(--ease-out); }
+
+.body { display: grid; gap: var(--space-3); padding: var(--space-5); }
+.body h3 { font-size: var(--text-lg); line-height: var(--leading-lg); }
+.body h3 a { text-decoration: none; min-block-size: 0; }
+.excerpt { color: var(--color-secondary); font-size: var(--text-sm); line-height: var(--leading-sm); }
+.author { color: var(--color-muted); font-size: var(--text-xs); font-family: var(--font-mono); }
+
+@media (hover: hover) {
+  .card:hover .imageLink img { transform: scale(1.04); }
+  .body h3 a:hover { color: var(--color-accent); }
+}

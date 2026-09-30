@@ -1,5 +1,5 @@
 import { useLayoutEffect } from 'react';
-import { Link, Route, Routes, useLocation } from 'react-router-dom';
+import { Link, Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import SocialRail from './components/SocialRail/SocialRail';
@@ -11,6 +11,10 @@ import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import AdminLogin from './pages/Admin/AdminLogin';
+import AdminLayout from './pages/Admin/AdminLayout';
+import AdminBlogs from './pages/Admin/AdminBlogs';
+import AdminEvents from './pages/Admin/AdminEvents';
 
 export default function App() {
   const { pathname, hash, key } = useLocation();
@@ -19,7 +23,7 @@ export default function App() {
   const { data: socials } = useContent(getSocials);
 
   useLayoutEffect(() => {
-    const names: Record<string, string> = { '/': 'Home', '/blogs': 'Blogs', '/gallery': 'Gallery', '/contact': 'Contact', '/login': 'Login', '/register': 'Register' };
+    const names: Record<string, string> = { '/': 'Home', '/blogs': 'Blogs', '/gallery': 'Gallery', '/contact': 'Contact', '/login': 'Login', '/register': 'Register', '/admin/login': 'Admin Login', '/admin/blogs': 'Admin · Blogs', '/admin/events': 'Admin · Events' };
     document.title = `${names[pathname] ?? 'Page not found'} | EDC SIRT`;
     // Wait until route markup and any closing drawer scroll lock are reconciled.
     const frame = window.requestAnimationFrame(() => {
@@ -52,6 +56,12 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<Navigate to="/admin/blogs" replace />} />
+            <Route path="blogs" element={<AdminBlogs />} />
+            <Route path="events" element={<AdminEvents />} />
+          </Route>
           <Route path="*" element={<section className="container section"><h1>Page not found.</h1><p><Link to="/">Return home</Link></p></section>} />
         </Routes>
       </main>

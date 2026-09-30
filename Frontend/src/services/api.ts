@@ -59,13 +59,29 @@ export async function getInitiatives(signal?: AbortSignal): Promise<Initiative[]
 }
 
 export async function getEvents(signal?: AbortSignal): Promise<Event[]> {
+  if (!API_URL) return events;
   const s = signal ?? new AbortController().signal;
-  return fetchJson('/events', s, events);
+  try {
+    const res = await fetch(`${API_URL.replace(/\/$/, '')}/api/events`, { signal: s });
+    if (!res.ok) throw new Error(`Request failed: ${res.status}`);
+    return (await res.json()) as Event[];
+  } catch (err) {
+    if (s.aborted) throw err;
+    return events;
+  }
 }
 
 export async function getBlogs(signal?: AbortSignal): Promise<Blog[]> {
+  if (!API_URL) return blogs;
   const s = signal ?? new AbortController().signal;
-  return fetchJson('/blogs', s, blogs);
+  try {
+    const res = await fetch(`${API_URL.replace(/\/$/, '')}/api/blogs`, { signal: s });
+    if (!res.ok) throw new Error(`Request failed: ${res.status}`);
+    return (await res.json()) as Blog[];
+  } catch (err) {
+    if (s.aborted) throw err;
+    return blogs;
+  }
 }
 
 export async function getGallery(signal?: AbortSignal): Promise<GalleryItem[]> {
